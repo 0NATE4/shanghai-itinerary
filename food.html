@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shanghai Food Options</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --cream: #faf8f5;
+            --warm-gray: #5a5a5a;
+            --gold: #d4af37;
+            --light-gray: #e8e6e1;
+            --white: #ffffff;
+        }
+        
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--warm-gray);
+            background-color: var(--cream);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: #2c2c2c;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(250, 248, 245, 0.9), rgba(250, 248, 245, 0.9)), url('images/songShuGuiYu.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 120px 20px 80px;
+            text-align: center;
+            border-bottom: 1px solid var(--light-gray);
+            position: relative;
+        }
+        
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+            color: #2c2c2c;
+            text-shadow: 0 2px 10px rgba(250, 248, 245, 0.8);
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            color: #2c2c2c;
+            font-weight: 300;
+            text-shadow: 0 1px 5px rgba(250, 248, 245, 0.8);
+        }
+        
+        /* Navigation */
+        .nav-container {
+            position: sticky;
+            top: 0;
+            background: rgba(250, 248, 245, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid var(--light-gray);
+            padding: 15px 0;
+        }
+        
+        .day-nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .day-nav a {
+            text-decoration: none;
+            color: var(--warm-gray);
+            font-weight: 500;
+            padding: 8px 20px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+        
+        .day-nav a:hover {
+            background: var(--light-gray);
+            color: #2c2c2c;
+        }
+        
+        /* Content */
+        .content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-header h2 {
+            font-size: 2.4rem;
+            margin-bottom: 10px;
+        }
+        
+        .section-header p {
+            color: var(--warm-gray);
+        }
+        
+        .food-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+            gap: 30px;
+        }
+        
+        .food-info h3 {
+            font-size: 1.6rem;
+            margin-bottom: 8px;
+        }
+        
+        .food-meta {
+            font-size: 0.95rem;
+            color: var(--warm-gray);
+            margin-bottom: 12px;
+        }
+        
+        .food-meta span {
+            display: inline-block;
+            margin-right: 15px;
+        }
+        
+        .price-pill {
+            display: inline-block;
+            background: var(--cream);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .food-info p {
+            margin-bottom: 10px;
+        }
+        
+        .food-info a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+        
+        .food-info a:hover {
+            border-bottom-color: var(--gold);
+        }
+        
+        .food-get {
+            margin-top: 10px;
+            font-size: 0.95rem;
+        }
+        
+        .food-get strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+        
+        .food-image {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid var(--light-gray);
+            margin-top: 20px;
+        }
+        
+        .footer a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 80px 20px 50px;
+                background-attachment: scroll;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .day-nav {
+                gap: 10px;
+                flex-wrap: wrap;
+                padding: 0 15px;
+            }
+            
+            .day-nav a {
+                font-size: 0.8rem;
+                padding: 6px 12px;
+            }
+            
+            .content {
+                padding: 40px 15px;
+            }
+            
+            .food-card {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Shanghai Food Options</h1>
+        <p>Go-to spots near each area of the itinerary</p>
+    </div>
+    
+    <!-- Navigation -->
+    <div class="nav-container">
+        <nav class="day-nav">
+            <a href="index.html#friday">Itinerary</a>
+            <a href="index.html#practical-info">Booking Info</a>
+            <a href="#yu-garden">Yu Garden / Old Town</a>
+            <a href="#peoples-square">People's Square / Nanjing Rd</a>
+            <a href="#bund">The Bund</a>
+        </nav>
+    </div>
+    
+    <!-- Content -->
+    <div class="content">
+        <div class="section-header">
+            <h2>Where to Eat</h2>
+            <p>Simple, reliable options that match each part of the itinerary.</p>
+        </div>
+        
+        <!-- Yu Garden / Old Town -->
+        <section id="yu-garden" class="food-card">
+            <div class="food-info">
+                <h3>Nanxiang Steamed Bun (City God Temple)</h3>
+                <div class="food-meta">
+                    <span>Area: Yu Garden / Old Town</span>
+                    <span class="price-pill">~$7–$15 AUD per person</span>
+                </div>
+                <p>Famous spot for xiao long bao right by Yu Garden and the City God Temple area.</p>
+                <p>
+                    <a href="https://guide.michelin.com/us/en/shanghai-municipality/shanghai/restaurant/nanxiang-steamed-bun-city-god-temple#:~:text=A%20household%20name%2C%20founded%20in,prepared%20to%20wait%20in%20line" target="_blank">
+                        View Nanxiang Steamed Bun on MICHELIN Guide →
+                    </a>
+                </p>
+                <div class="food-get">
+                    <strong>What to get:</strong>
+                    <ul>
+                        <li>Original pork xiao long bao</li>
+                        <li>Crab roe xiao long bao</li>
+                        <li>Giant bun with straw for the soup</li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <img src="images/nanXianFood.jpg" alt="Nanxiang Steamed Bun" class="food-image">
+            </div>
+        </section>
+        
+        <!-- People's Square / Nanjing Road -->
+        <section id="peoples-square" class="food-card">
+            <div class="food-info">
+                <h3>Jia Jia Tang Bao (佳家汤包)</h3>
+                <div class="food-meta">
+                    <span>Area: People’s Square / Nanjing Road</span>
+                    <span class="price-pill">~$5–$12 AUD per person</span>
+                </div>
+                <p>Classic Shanghai soup dumpling shop, an easy add-on around People’s Square / Nanjing Road.</p>
+                <p>
+                    <a href="https://rachelgouk.com/listings/jia-jia-tang-bao-huanghe-road/" target="_blank">
+                        Read more about Jia Jia Tang Bao →
+                    </a>
+                </p>
+                <div class="food-get">
+                    <strong>What to get:</strong>
+                    <ul>
+                        <li>Pork xiao long bao</li>
+                        <li>Pork + crab roe xiao long bao</li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <img src="images/jiaJiaTongBaoFood.jpg" alt="Jia Jia Tang Bao" class="food-image">
+            </div>
+        </section>
+        
+        <!-- The Bund -->
+        <section id="bund" class="food-card">
+            <div class="food-info">
+                <h3>Lost Heaven on the Bund</h3>
+                <div class="food-meta">
+                    <span>Area: The Bund</span>
+                    <span class="price-pill">~$25–$40 AUD per person</span>
+                </div>
+                <p>Dark, moody Yunnan restaurant on the Bund – great for a nicer dinner with bold flavors.</p>
+                <p>
+                    <a href="https://www.cntraveler.com/restaurants/shanghai/lost-heaven#:~:text=Dark%2C%20moody%2C%20and%20sleekly%20sophisticated%2C,floor%20Mask%20lounge" target="_blank">
+                        View Lost Heaven on Condé Nast Traveler →
+                    </a>
+                </p>
+                <div class="food-get">
+                    <strong>What to get:</strong>
+                    <ul>
+                        <li>Yunnan mushrooms</li>
+                        <li>Lemongrass seafood</li>
+                        <li>Tea-leaf salad</li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <img src="images/lostHeavenFood.jpg" alt="Lost Heaven on the Bund" class="food-image">
+            </div>
+        </section>
+        
+        <section class="food-card">
+            <div class="food-info">
+                <h3>Lao Zheng Xing (老正兴菜馆)</h3>
+                <div class="food-meta">
+                    <span>Area: The Bund</span>
+                    <span class="price-pill">Traditional Shanghainese · Michelin Star</span>
+                </div>
+                <p>Historic Shanghainese restaurant known for refined, old-school dishes and a Michelin star.</p>
+                <p>
+                    <a href="https://www.gastroroam.com/blog/lao-zheng-xing-shanghai-michelin-starred-shanghainese-restaurant" target="_blank">
+                        Read about Lao Zheng Xing →
+                    </a>
+                </p>
+                <div class="food-get">
+                    <strong>What to get:</strong>
+                    <ul>
+                        <li>Braised river eel</li>
+                        <li>Drunken chicken</li>
+                        <li>Seasonal Shanghainese classics</li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <img src="images\laoZhenXingFood.webp" alt="Lao Zheng Xing" class="food-image">
+            </div>
+        </section>
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer">
+        <p><a href="index.html">← Back to Itinerary</a></p>
+    </div>
+</body>
+</html>
+
+
