@@ -215,12 +215,90 @@
             margin-top: 15px;
         }
         
+        /* Practical Info Section */
+        .practical-info {
+            max-width: 1000px;
+            margin: 60px auto 0;
+            padding: 0 20px 60px;
+        }
+        
+        .practical-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .info-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+        }
+        
+        .info-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--gold);
+            border-bottom: 2px solid var(--light-gray);
+            padding-bottom: 10px;
+        }
+        
+        .info-card p {
+            color: var(--warm-gray);
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+        
+        .info-card a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+        
+        .info-card a:hover {
+            border-bottom-color: var(--gold);
+        }
+        
+        .info-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 15px 0;
+        }
+        
+        .info-card li {
+            color: var(--warm-gray);
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .info-card li:before {
+            content: "•";
+            color: var(--gold);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .price-tag {
+            display: inline-block;
+            background: var(--cream);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            color: var(--warm-gray);
+            margin-left: 8px;
+        }
+        
         /* Footer */
         .footer {
             text-align: center;
             padding: 40px 20px;
             border-top: 1px solid var(--light-gray);
-            margin-top: 60px;
+            margin-top: 0;
         }
         
         .footer a {
@@ -301,6 +379,22 @@
             .location-image {
                 margin-top: 12px;
             }
+            
+            .practical-info {
+                padding: 0 15px 40px;
+            }
+            
+            .practical-info h2 {
+                font-size: 2rem;
+            }
+            
+            .info-card {
+                padding: 20px;
+            }
+            
+            .info-card h3 {
+                font-size: 1.3rem;
+            }
         }
         
         @media (max-width: 480px) {
@@ -331,7 +425,6 @@
             <a href="#friday">Friday</a>
             <a href="#saturday">Saturday</a>
             <a href="#sunday">Sunday</a>
-            <a href="travel-details.html">Travel Details</a>
         </nav>
     </div>
     
@@ -373,9 +466,9 @@
                 <div class="time">20:00</div>
                 <div class="activity-content">
                     <h3>Dinner near Nanjing Rd</h3>
-                    <p>Explore the vibrant food scene along Nanjing Road.</p>
+                    <p>Explore the vibrant food scene along Nanjing Road. Try Song Shu Gui Yu (squirrel-shaped mandarin fish), a classic Shanghai dish.</p>
                     <img src="images/nanjingRoad.jpg" alt="Nanjing Road" class="location-image">
-                    <img src="images/xiaoLongBao.jpg" alt="Xiao Long Bao" class="location-image" style="margin-top: 15px;">
+                    <img src="images/songShuGuiYu.jpg" alt="Song Shu Gui Yu" class="location-image" style="margin-top: 15px;">
                 </div>
             </div>
             
@@ -425,7 +518,7 @@
                 <div class="time">13:00 - 13:40</div>
                 <div class="activity-content">
                     <h3>Back towards hotel + lunch</h3>
-                    <p>Return to the hotel area and enjoy lunch.</p>
+                    <p>Return to the hotel area and enjoy lunch. Try Xiao Long Bao (soup dumplings), a Shanghai specialty.</p>
                     <img src="images/xiaoLongBao.jpg" alt="Xiao Long Bao" class="location-image">
                 </div>
             </div>
@@ -495,7 +588,6 @@
                 <div class="activity-content">
                     <h3>Back + lunch</h3>
                     <p>Return to the hotel area and have lunch.</p>
-                    <img src="images/xiaoLongBao.jpg" alt="Xiao Long Bao" class="location-image">
                 </div>
             </div>
             
@@ -526,9 +618,84 @@
         </section>
     </div>
     
+    <!-- Practical Info & Booking Links -->
+    <div class="practical-info">
+        <h2>Practical Info & Booking Links</h2>
+        
+        <!-- Attractions -->
+        <div class="info-card">
+            <h3>Attraction Tickets</h3>
+            <p>
+                <strong>Yu Garden</strong>
+                <span class="price-tag">~$7 AUD</span><br>
+                <a href="https://www.klook.com/activity/16738-yu-garden-admission-ticket-shanghai/?spm=Activity.TopNavigation.SelectCurrency&clickId=2352de1ad8" target="_blank">Book Yu Garden Tickets →</a>
+            </p>
+            <p>
+                <strong>Oriental Pearl Tower</strong>
+                <span class="price-tag">~$45 AUD</span><br>
+                <a href="https://www.klook.com/activity/3947-oriental-pearl-tower-shanghai/" target="_blank">Book Pearl Tower Tickets →</a>
+            </p>
+        </div>
+        
+        <!-- Hotel -->
+        <div class="info-card">
+            <h3>Hotel Booking</h3>
+            <p>
+                <strong>Location:</strong> Near East Nanjing Road Station<br>
+                <strong>Budget:</strong> Up to $100 AUD per night (can split for 2 people)<br>
+                <strong>Dates:</strong> Dec 5-7, 2025 (2 nights)
+            </p>
+            <p>
+                <a href="https://hk.trip.com/hotels/list?city=2&cityName=Shanghai&country=1&provinceId=2&searchWord=East%20Nanjing%20Road%20Station&landmark=4328&checkin=2025%2F12%2F05&checkout=2025%2F12%2F07&crn=1&adult=2&children=0&ages=&spm=10650153208.hohSearchBox-1" target="_blank">Search Hotels Near East Nanjing Road Station →</a>
+            </p>
+        </div>
+        
+        <!-- Flights -->
+        <div class="info-card">
+            <h3>Flights</h3>
+            <p>
+                <strong>Route:</strong> Shenzhen (SZX) ↔ Shanghai (SHA)<br>
+                <strong>Dates:</strong> Dec 5-7, 2025 (Return)<br>
+                <strong>Current Price:</strong> ~$300 AUD return
+            </p>
+            <p>
+                <a href="https://hk.trip.com/chinaflights/showfarefirst?dcity=szx&acity=sha&ddate=2025-12-05&rdate=2025-12-07&triptype=rt&class=y&lowpricesource=searchform&quantity=1&searchboxarg=t&nonstoponly=off&locale=en-HK&curr=AUD" target="_blank">Search Flights →</a>
+            </p>
+        </div>
+        
+        <!-- Airport Transportation -->
+        <div class="info-card">
+            <h3>Getting to/from Airport</h3>
+            <p><strong>From Pudong Airport (PVG) to East Nanjing Road:</strong></p>
+            <ol style="list-style: decimal; padding-left: 25px; color: var(--warm-gray); line-height: 1.8;">
+                <li><strong>Take Shanghai Maglev</strong>
+                    <ul style="list-style: none; padding-left: 20px; margin-top: 8px;">
+                        <li>Station: Pudong Airport Station (PVG)</li>
+                        <li>Ride time: ~8 minutes</li>
+                        <li>Drops you at: Longyang Road Station</li>
+                        <li>Price: 50 RMB one way (40 RMB with flight ticket)</li>
+                        <li>Frequency: Every 15-20 minutes</li>
+                    </ul>
+                </li>
+                <li style="margin-top: 15px;"><strong>Transfer to Metro Line 2</strong>
+                    <ul style="list-style: none; padding-left: 20px; margin-top: 8px;">
+                        <li>Follow signs from Maglev platform to Metro Line 2</li>
+                        <li>Line 2 goes directly through central Shanghai</li>
+                    </ul>
+                </li>
+                <li style="margin-top: 15px;"><strong>Take Metro Line 2 → East Nanjing Road (南京东路)</strong>
+                    <ul style="list-style: none; padding-left: 20px; margin-top: 8px;">
+                        <li>Ride time: ~20 minutes</li>
+                        <li>Price: 5 RMB</li>
+                    </ul>
+                </li>
+            </ol>
+            <p style="margin-top: 15px;"><strong>Total travel time:</strong> ~35-45 minutes door to door</p>
+        </div>
+    </div>
+    
     <!-- Footer -->
     <div class="footer">
-        <p><a href="travel-details.html">View Travel Details →</a></p>
     </div>
     
     <!-- Leaflet JS -->
